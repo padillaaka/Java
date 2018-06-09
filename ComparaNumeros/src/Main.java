@@ -5,31 +5,46 @@ public class Main {
         //Para leer por teclado
         Scanner teclado = new Scanner(System.in);
 
-        //Variable para guardar la entrada de teclado
-        int numeroLeido;
+        int opcionMenu;
+        String nombreDeUsuario = null;
+        int edad;
+        String usuarioBorrado = null;
+        //mostramos menu
+        mostrarMenu();
 
-        //Pedimos al usuario un numero
-        System.out.print("Introduzca un numero: ");
-        numeroLeido = teclado.nextInt();
+        //pedimos opcion a realizar
+        System.out.print("Que desea hacer: ");
+        opcionMenu = teclado.nextInt();
 
-        //Comparamos
-        switch (numeroLeido){
+        switch (opcionMenu){
             case 1:
+                System.out.print("Introduzca el nombre de usuario: ");
+                teclado.nextLine();
+                nombreDeUsuario = teclado.nextLine();
+                System.out.print("Introduzca su edad: 2");
+                edad = teclado.nextInt();
+
+                System.out.println("Se a creado el usuario "+nombreDeUsuario +" con edad "+edad);
+                break;
             case 2:
-            case 3:
-            case 4:
-                System.out.println("Suspenso");
-                break;
-            case 5:
-            case 6:
-            case 7:
-                System.out.println("Aprobado");
-                break;
-            case 8:
-            case 9:
-            case 10:
-                System.out.println("Sobresaliente");
+                System.out.println("Introduzca el nombre del usuario que desea borrar");
+                teclado.nextLine();
+                usuarioBorrado = teclado.nextLine();
+                if (usuarioBorrado.equals("pepe"))
+                {
+                    System.out.println("Usuario borrado");
+                }
+                else{
+                    System.out.println("Usuario no encontrado");
+                }
                 break;
         }
+    }
+
+    public static void mostrarMenu(){
+        System.out.println("1. Crear Usuario");
+        System.out.println("2. Borrar usuario");
+        System.out.println("3. Buscar usuario");
+        System.out.println("4. Salir");
     }
 }
